@@ -1,0 +1,9 @@
+#### Copy and paste to gnome-schedule ####
+
+@reboot sudo create_ap -n wlan0 RancherCam 12345678
+@reboot /home/pi/RPI_SSD1306/display.sh
+@daily /home/pi/rboot.sh
+15 */2 * * * /home/pi/upload.sh
+0 9,16 * * *  /home/pi/RancherCam.sh
+
+
