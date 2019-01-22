@@ -23,7 +23,7 @@ cust_num = custnumber.custnum
 # Define the location where you wish to save files. Set to HOME as default. 
 # If you run a local web server on Apache you could set this to /var/www/ to make them 
 # accessible via web browser.
-folderToSave = "/home/pi/" + str(cust_num)
+folderToSave = "/home/pi/rpifiles/RancherCamScripts/" + str(cust_num)
 
 
 # Set the initial serial for saved images to 1
@@ -61,11 +61,11 @@ def have_internet():
         conn.request("HEAD", "/")
         conn.close()
         return True
-	os.system("sh /home/pi/upload.sh -v")
+	os.system("sh /home/pi/rpifiles/RancherCamScripts/upload.sh -v")
     except:
         conn.close()
         return False
-	os.system("sh /home/pi/modem.sh")
+	os.system("sh /home/pi/rpifiles/RancherCamScripts/modem.sh")
     
 	
 # Uploads the file that was just created
@@ -73,7 +73,7 @@ def have_internet():
 
 
 # Deletes the contents of the local upload directory for the next run
-os.system('python cleanupfiles.py')
+os.system('python /home/pi/rpifiles/RancherCamScripts/cleanupfiles.py')
 
 #Stops the script
 sys.exit("Done!") 

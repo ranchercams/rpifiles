@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import sys, os
-os.system("sh /home/pi/vedirect/updatevars.sh")
-sys.path.insert(0, '/home/pi/RPI_SSD1306/')
+os.system("sh /home/pi/rpifiles/vedirect/updatevars.sh")
+sys.path.insert(0, '/home/pi/rpifiles/RPI_SSD1306/')
 import sigpower
 from Hologram.HologramCloud import HologramCloud
 

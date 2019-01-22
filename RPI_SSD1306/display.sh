@@ -1,7 +1,7 @@
 #!/bin/bash
 
 display(){
-	python /home/pi/RPI_SSD1306/display.py
+	python /home/pi/rpifiles/RPI_SSD1306/display.py
 }
 
 until display; do

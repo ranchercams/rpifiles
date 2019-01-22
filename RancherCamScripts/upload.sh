@@ -3,7 +3,7 @@ HOST='http://wwww.indianmeadowshunt.com'
 USER='indianmeadowshfc'
 PASS='Alphatango47!'
 TARGETFOLDER='/public_html/lakecams/gulch/'
-SOURCEFOLDER='/home/pi/gulch/'
+SOURCEFOLDER='/home/pi/rpifiles/RancherCamScripts/gulch/'
  
 lftp -f "
 open $HOST

@@ -11,7 +11,7 @@ import time
 cust_num = custnumber.custnum
 
 
-files = glob.glob('/home/pi/' + str(cust_num) + '/*')
+files = glob.glob('/home/pi/rpifiles/RancherCamScripts/' + str(cust_num) + '/*')
 for f in files:
     os.remove(f)
 time.sleep(10)
