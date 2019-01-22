@@ -42,10 +42,10 @@ pcmanfm --wallpaper-mode=stretch --set-wallpaper /home/pi/rpifiles/wallpaper.png
 
 #Open CRONTAB Editor
 crontab -e &
-/home/pi/rpifiles/setupfiles/crontab-paste-from-here.txt
+leafpad /home/pi/rpifiles/setupfiles/crontab-paste-from-here.txt
 
 #Edit Customer Number info for dependant files
-/home/pi/rpifiles/custnumber.py
+leafpad /home/pi/rpifiles/custnumber.py
 
 # Create Directories
 python /home/pi/rpifiles/setupfiles/mkdir.py
