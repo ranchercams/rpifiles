@@ -3,11 +3,12 @@
 
 
 # Import some frameworks
+import sys
+sys.path.insert(0, '/home/pi/rpifiles')
+import custnumber
 import glob,os
 import time
 from datetime import datetime
-import sys
-import custnumber
 from subprocess import Popen
 
 # Grab the current datetime which will be used to generate dynamic folder names
