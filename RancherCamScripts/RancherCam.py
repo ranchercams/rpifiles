@@ -4,8 +4,8 @@
 
 # Import some frameworks
 import sys
-sys.path.insert(0, '/home/pi/rpifiles')
-import custnumber
+sys.path.insert(0, '/home/pi/rpifiles/')
+from customernumber import custnumber
 import glob,os
 import time
 from datetime import datetime
@@ -19,12 +19,12 @@ initDate = "%02d" % (d.day)
 initHour = "%02d" % (d.hour)
 initMins = "%02d" % (d.minute)
 
-cust_num = custnumber.custnum
+cust_num = custnumber
 
 # Define the location where you wish to save files. Set to HOME as default. 
 # If you run a local web server on Apache you could set this to /var/www/ to make them 
 # accessible via web browser.
-folderToSave = "/home/pi/rpifiles/RancherCamScripts/" + str(cust_num)
+folderToSave = "/home/pi/rpifiles/" + str(cust_num)
 
 
 # Set the initial serial for saved images to 1
@@ -51,22 +51,7 @@ fileSerial += 1
 
 #Checks for connection and connects if needed
 #os.system("sh modem.sh")
-try:
-    import httplib
-except:
-    import http.client as httplib
-
-def have_internet():
-    conn = httplib.HTTPConnection("www.google.com", timeout=10)
-    try:
-        conn.request("HEAD", "/")
-        conn.close()
-        return True
-	os.system("sh /home/pi/rpifiles/RancherCamScripts/upload.sh -v")
-    except:
-        conn.close()
-        return False
-	os.system("sh /home/pi/rpifiles/RancherCamScripts/modem.sh")
+os.system('python /home/pi/rpifiles/RancherCamScripts/upload.py')
     
 	
 # Uploads the file that was just created

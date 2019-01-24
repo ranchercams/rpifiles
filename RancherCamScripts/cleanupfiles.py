@@ -5,13 +5,14 @@
 # Import some frameworks
 import glob,os
 import sys
-import custnumber
+sys.path.insert(0, '/home/pi/rpifiles/')
+from customernumber import custnumber
 import time
 
-cust_num = custnumber.custnum
+cust_num = custnumber
 
 
-files = glob.glob('/home/pi/rpifiles/RancherCamScripts/' + str(cust_num) + '/*')
+files = glob.glob('/home/pi/rpifiles/' + str(cust_num) + '/*')
 for f in files:
     os.remove(f)
 time.sleep(10)

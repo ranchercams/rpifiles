@@ -1,9 +1,5 @@
-#!/bin/bash
-HOST='http://wwww.indianmeadowshunt.com'
-USER='indianmeadowshfc'
-PASS='Alphatango47!'
-TARGETFOLDER='/public_html/lakecams/gulch/'
-SOURCEFOLDER='/home/pi/rpifiles/RancherCamScripts/gulch/'
+#!/usr/bin/env bash
+source /home/pi/rpifiles/RancherCamScripts/customernumber.sh
  
 lftp -f "
 open $HOST
