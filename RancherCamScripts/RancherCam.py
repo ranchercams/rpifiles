@@ -44,7 +44,7 @@ cameraName = str(cust_num)
 
 # Capture the image using raspistill. Set to capture with added sharpening, auto white balance and average metering mode
 # Change these settings where you see fit and to suit the conditions you are using the camera in
-os.system("raspistill -w " + str(imgWidth) + " -h " + str(imgHeight) + " -o " + str(folderToSave) + "/" + str(hour) + ":" + str(mins) + "_" + str(initMonth) + "-" + str(initDate) + "-" +str(initYear) + "_" + str(cust_num) + ".jpg -sh 40 -awb auto -mm average -v -ae 32,0x00,0x8080ff -a 1036 -a " + str(cust_num))
+os.system("raspistill -rot 270 -w " + str(imgWidth) + " -h " + str(imgHeight) + " -o " + str(folderToSave) + "/" + str(hour) + ":" + str(mins) + "_" + str(initMonth) + "-" + str(initDate) + "-" +str(initYear) + "_" + str(cust_num) + ".jpg -sh 40 -awb auto -mm average -v -ae 32,0x00,0x8080ff -a 1036 -a " + str(cust_num))
 
 # Increment the fileSerial
 fileSerial += 1

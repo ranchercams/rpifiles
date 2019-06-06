@@ -4,6 +4,6 @@
 @reboot /home/pi/rpifiles/RPI_SSD1306/display.sh
 @daily /home/pi/rpifiles/RancherCamScripts/rboot.sh
 15 */2 * * * /home/pi/rpifiles/RancherCamScripts/upload.sh
-0 9,16 * * *  /home/pi/rpifiles/RancherCamScripts/RancherCam.sh
+0 8,16 * * *  /home/pi/rpifiles/RancherCamScripts/RancherCam.sh
 
 

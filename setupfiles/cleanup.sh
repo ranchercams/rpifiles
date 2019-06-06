@@ -3,19 +3,36 @@
 
 # Install Hologram SDK
 sudo curl -L hologram.io/python-install | bash
+sleep 2
 sudo curl -L hologram.io/python-update | bash
+sleep 2
 
 # Install OLED Drivers
 cd /home/pi/rpifiles
 git clone https://github.com/adafruit/Adafruit_Python_SSD1306
 cd Adafruit_Python_SSD1306
 sudo python setup.py install
+sleep 2
 
 #Install Create_AP
 cd /home/pi/rpifiles
 git clone https://github.com/oblique/create_ap
 cd create_ap
-make install
+sudo make install
+sleep 2
+
+# Install RPI-TIMOLO
+curl -L https://raw.github.com/pageauc/pi-timolo/master/source/pi-timolo-install.sh | bash
+sleep 2
+
+#Install python dependancies
+sudo pip install tenacity
+sleep 1
+pip install tenacity
+sleep 1
+sudo pip install interruptingcow
+sleep 1
+pip install interruptingcow
 
 # Set Permissions
 sudo chown -R pi /home/pi
@@ -35,13 +52,8 @@ rm -rf /home/pi/oldconffiles
 # Set Wallpaper
 pcmanfm --wallpaper-mode=stretch --set-wallpaper /home/pi/rpifiles/wallpaper.png 
 
-# Install RPi_Cam_Web_Interface
-#cd /home/pi/rpifiles
-#git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
-#./home/pi/RPi_Cam_Web_Interface/install.sh
-
 #Open CRONTAB Editor
-crontab -e &
+gnome-schedule &
 leafpad /home/pi/rpifiles/setupfiles/crontab-paste-from-here.txt
 
 #Edit Customer Number info for dependant files
@@ -49,8 +61,9 @@ leafpad /home/pi/rpifiles/custnumber.py
 
 # Create Directories
 python /home/pi/rpifiles/setupfiles/mkdir.py
-sleep(500)
+sleep 5
 
+sudo rpi-config
 #Remove cleanup scripts
-rm -fr /home/pi/rpifiles/setupfiles
-rm /home/pi/rpifiles/mkdir.py
+#rm -fr /home/pi/rpifiles/setupfiles
+#rm /home/pi/rpifiles/mkdir.py
