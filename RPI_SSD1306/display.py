@@ -8,6 +8,7 @@ from PIL import ImageDraw
 from PIL import ImageFont
 
 import subprocess
+from interruptingcow import timeout
 
 # Raspberry Pi pin configuration:
 RST = None     # on the PiOLED this pin isnt used
@@ -66,7 +67,7 @@ font_icon_big = ImageFont.truetype('fontawesome-webfont2.ttf', 40)
 font_text_big = ImageFont.truetype('Montserrat-Medium.ttf', 15)
 
 # Choose Battery icon
-def Battery_icon_and_pourcentage (value):
+def Battery_icon_and_percentage (value):
     if value<10:
         draw.text((x+45, top+17),       unichr(62020),  font=font2, fill=255)
     elif value<11:
@@ -98,38 +99,41 @@ def Bars_icon (value, var_opp):
         draw.text((x+45, top+20),       unichr(63125),  font=font2, fill=255)
     draw.text((x+5, top), var_opp,  font=font, fill=255)
     
-while True:
+try:
+    with timeout(60*5, exception=RuntimeError):
+        while True:
+            # Draw a black filled box to clear the image.
+            draw.rectangle((0,0,width,height), outline=0, fill=0)
 
-    # Draw a black filled box to clear the image.
-    draw.rectangle((0,0,width,height), outline=0, fill=0)
+			# Open the file "sigpower.py" and take the informations
+			with open("sigpower.py","r") as file:
+				denied = file.read(11)
+				var_bars = int (file.readline())
+				denied = file.read(10)
+				var_vpv = file.readline()
+				denied = file.read(11)
+				var_batt = float(file.readline())
+				denied = file.read(9)
+				var_op = file.readline()
 
-    # Open the file "sigpower.py" and take the informations
-    with open("sigpower.py","r") as file:
-        denied = file.read(11)
-        var_bars = int (file.readline())
-        denied = file.read(10)
-        var_vpv = file.readline()
-        denied = file.read(11)
-        var_batt = float(file.readline())
-        denied = file.read(9)
-        var_op = file.readline()
+			#Write data
+			Bars_icon (var_bars,var_op)
+			disp.image(image)
+			disp.display()
+			time.sleep(5)
 
-    #Write data
-    Bars_icon (var_bars,var_op)
-    disp.image(image)
-    disp.display()
-    time.sleep(5)
+			draw.rectangle((0,0,width,height), outline=0, fill=0)
+			Battery_icon_and_percentage (var_batt)
+			disp.image(image)
+			disp.display()
+			time.sleep(5)
 
-    draw.rectangle((0,0,width,height), outline=0, fill=0)
-    Battery_icon_and_pourcentage (var_batt)
-    disp.image(image)
-    disp.display()
-    time.sleep(5)
-
-    draw.rectangle((0,0,width,height), outline=0, fill=0)
-    draw.text((x+22, top), "Solar Panel",  font=font, fill=255)
-    draw.text((x+45, top+18),       unichr(62906),  font=font2, fill=255)
-    draw.text((x+48, top+50), var_vpv, font=font_text_big, fill=255)
-    disp.image(image)
-    disp.display()
-    time.sleep(5)
+			draw.rectangle((0,0,width,height), outline=0, fill=0)
+			draw.text((x+22, top), "Solar Panel",  font=font, fill=255)
+			draw.text((x+45, top+18),       unichr(62906),  font=font2, fill=255)
+			draw.text((x+48, top+50), var_vpv, font=font_text_big, fill=255)
+			disp.image(image)
+			disp.display()
+			time.sleep(5)
+except RuntimeError:
+    pass
