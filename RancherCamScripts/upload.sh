@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+#used to reference FTP params for upload
 source /home/pi/rpifiles/RancherCamScripts/customernumber.sh
  
 lftp -f "

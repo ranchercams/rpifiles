@@ -21,9 +21,7 @@ initMins = "%02d" % (d.minute)
 
 cust_num = custnumber
 
-# Define the location where you wish to save files. Set to HOME as default. 
-# If you run a local web server on Apache you could set this to /var/www/ to make them 
-# accessible via web browser.
+# Define the location where you wish to save files. Set to /home/pi/rpifiles/*customernumber* as default. 
 folderToSave = "/home/pi/rpifiles/" + str(cust_num)
 
 
@@ -41,28 +39,18 @@ imgHeight = 972 # Max = 1944
 #Name of Camera
 cameraName = str(cust_num)
 
-
 # Capture the image using raspistill. Set to capture with added sharpening, auto white balance and average metering mode
 # Change these settings where you see fit and to suit the conditions you are using the camera in
-os.system("raspistill -rot 270 -w " + str(imgWidth) + " -h " + str(imgHeight) + " -o " + str(folderToSave) + "/" + str(hour) + ":" + str(mins) + "_" + str(initMonth) + "-" + str(initDate) + "-" +str(initYear) + "_" + str(cust_num) + ".jpg -sh 40 -awb auto -mm average -v -ae 32,0x00,0x8080ff -a 1036 -a " + str(cust_num))
+os.system("raspistill -rot 180 -w " + str(imgWidth) + " -h " + str(imgHeight) + " -o " + str(folderToSave) + "/" + str(initYear) + "-" + str(initMonth) + "-" + str(initDate) + "_" + str(hour) + ":" + str(mins) + "_" + str(cust_num) + ".jpg -sh 40 -awb auto -mm average -v -ae 32,0x00,0x8080ff -a 1036 -a " + str(cust_num))
 
 # Increment the fileSerial
 fileSerial += 1
 
-#Checks for connection and connects if needed
-#os.system("sh modem.sh")
+#Checks for connection and connects if needed, if fails, runs failback scripts to retry uploads
 os.system('python /home/pi/rpifiles/RancherCamScripts/upload.py')
-    
-	
-# Uploads the file that was just created
-# os.system("sh upload.sh")
 
-
-# Deletes the contents of the local upload directory for the next run
+# Deletes the contents of the local upload directory for the next run, once clean upload is detected
 os.system('python /home/pi/rpifiles/RancherCamScripts/cleanupfiles.py')
 
 #Stops the script
-sys.exit("Done!") 
-
- 
-    
+sys.exit("Done!")

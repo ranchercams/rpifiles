@@ -57,10 +57,10 @@ gnome-schedule &
 leafpad /home/pi/rpifiles/setupfiles/crontab-paste-from-here.txt
 
 #Edit Customer Number info for dependant files
-leafpad /home/pi/rpifiles/customernumber.py
+leafpad /home/pi/rpifiles/custnumber.py
 
 # Create Directories
-python /home/pi/rpifiles/mkdir.py
+python /home/pi/rpifiles/setupfiles/mkdir.py
 sleep 5
 
 sudo rpi-config
