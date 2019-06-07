@@ -4,6 +4,8 @@
 # Install Hologram SDK
 sudo curl -L hologram.io/python-install | bash
 sleep 2
+sudo curl -L hologram.io/python-install | bash
+sleep 2
 sudo curl -L hologram.io/python-update | bash
 sleep 2
 
@@ -26,13 +28,13 @@ curl -L https://raw.github.com/pageauc/pi-timolo/master/source/pi-timolo-install
 sleep 2
 
 #Install python dependancies
-sudo pip install tenacity
-sleep 1
 pip install tenacity
 sleep 1
-sudo pip install interruptingcow
+sudo pip install tenacity
 sleep 1
 pip install interruptingcow
+sleep 1
+sudo pip install interruptingcow
 
 # Set Permissions
 sudo chown -R pi /home/pi
@@ -53,17 +55,17 @@ rm -rf /home/pi/oldconffiles
 pcmanfm --wallpaper-mode=stretch --set-wallpaper /home/pi/rpifiles/wallpaper.png 
 
 #Open CRONTAB Editor
-gnome-schedule &
-leafpad /home/pi/rpifiles/setupfiles/crontab-paste-from-here.txt
+leafpad /home/pi/rpifiles/setupfiles/crontab-paste-from-here.txt &
+gnome-schedule 
 
 #Edit Customer Number info for dependant files
 leafpad /home/pi/rpifiles/custnumber.py
 
 # Create Directories
-python /home/pi/rpifiles/setupfiles/mkdir.py
+python /home/pi/rpifiles/mkdir.py
 sleep 5
 
-sudo rpi-config
+raspi-config
 #Remove cleanup scripts
 #rm -fr /home/pi/rpifiles/setupfiles
 #rm /home/pi/rpifiles/mkdir.py

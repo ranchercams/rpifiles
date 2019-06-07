@@ -17,6 +17,7 @@ sudo chown -R pi /home/pi/
 sudo chmod 777 -R /home/pi/
 sleep 5
 
-sudo apt-get install gnome-schedule procps hostapd iproute2 iw haveged dnsmasq iptables -y
+sudo apt-get install gnome-schedule ltfp procps hostapd iproute2 iw haveged dnsmasq iptables -y
 sleep 2
 
+git clone https://github.com/ranchercams/rpifiles.git
