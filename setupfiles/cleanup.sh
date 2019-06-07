@@ -65,7 +65,7 @@ leafpad /home/pi/rpifiles/customernumber.py
 python /home/pi/rpifiles/mkdir.py
 sleep 5
 
-sudo raspi-config
+env SUDO_ASKPASS=/usr/lib/rc-gui/pwdrcg.sh sudo -A rc_gui
 #Remove cleanup scripts
 #rm -fr /home/pi/rpifiles/setupfiles
 #rm /home/pi/rpifiles/mkdir.py
