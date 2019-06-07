@@ -61,10 +61,11 @@ gnome-schedule
 #Edit Customer Number info for dependant files
 leafpad /home/pi/rpifiles/customernumber.py
 
-# Create Directories
+# Create User Media Directories
 python /home/pi/rpifiles/mkdir.py
 sleep 5
 
+#Open raspi-config GUI
 env SUDO_ASKPASS=/usr/lib/rc-gui/pwdrcg.sh sudo -A rc_gui
 #Remove cleanup scripts
 #rm -fr /home/pi/rpifiles/setupfiles

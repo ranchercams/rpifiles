@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+sudo ntpd
 
 #used to reference FTP params for upload
 source /home/pi/rpifiles/RancherCamScripts/customernumber.sh
