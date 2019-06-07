@@ -1,1 +1,1 @@
-var_bars = 9
+var_bars = 0

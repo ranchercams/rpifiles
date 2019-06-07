@@ -1,0 +1,5 @@
+HOST='indianmeadowshunt.com'
+USER='indianmeadowshfc'
+PASS='Alphatango47!'
+TARGETFOLDER='/public_html/lakecams/gulch/'
+SOURCEFOLDER='/home/pi/rpifiles/gulch/'

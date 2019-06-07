@@ -1,8 +1,8 @@
 #!/bin/bash
 
-python /home/pi/rpifiles/vedirect/vedirect.py --port /dev/ttyUSB0 | grep -oP "'VPV': '\d+'|'V': '\d+'" > /home/pi/vedirect/power.txt
+python /home/pi/rpifiles/vedirect/vedirect.py --port /dev/ttyUSB0 | grep -oP "'VPV': '\d+'|'V': '\d+'" > /home/pi/rpifiles/vedirect/power.txt
 sleep 1
-python /home/pi/rpifiles/vedirect/vedirect.py --port /dev/ttyUSB0 | grep -oP "'VPV': '\d+'|'V': '\d+'" > /home/pi/vedirect/power.txt
+python /home/pi/rpifiles/vedirect/vedirect.py --port /dev/ttyUSB0 | grep -oP "'VPV': '\d+'|'V': '\d+'" > /home/pi/rpifiles/vedirect/power.txt
 sleep 1
 sudo hologram modem signal > /home/pi/rpifiles/vedirect/sig.py
 sleep 1
