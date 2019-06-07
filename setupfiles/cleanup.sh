@@ -59,13 +59,13 @@ leafpad /home/pi/rpifiles/setupfiles/crontab-paste-from-here.txt &
 gnome-schedule 
 
 #Edit Customer Number info for dependant files
-leafpad /home/pi/rpifiles/custnumber.py
+leafpad /home/pi/rpifiles/customernumber.py
 
 # Create Directories
 python /home/pi/rpifiles/mkdir.py
 sleep 5
 
-raspi-config
+sudo raspi-config
 #Remove cleanup scripts
 #rm -fr /home/pi/rpifiles/setupfiles
 #rm /home/pi/rpifiles/mkdir.py
