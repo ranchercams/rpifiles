@@ -19,3 +19,4 @@ sleep 5
 
 sudo apt-get install gnome-schedule ltfp procps hostapd iproute2 iw haveged dnsmasq iptables -y
 sleep 2
+bash /home/pi/rpifiles/setupfiles/cleanup.sh
