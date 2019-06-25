@@ -4,7 +4,7 @@ sudo ntpd -q -g
 sudo systemctl start ntp
 
 #used to reference FTP params for upload
-source /home/pi/rpifiles/RancherCamScripts/customernumber.sh
+source /home/pi/pi-timolo/RancherCamScripts/customernumber.sh
  
 lftp -f "
 open $HOST

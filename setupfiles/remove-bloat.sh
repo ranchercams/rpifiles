@@ -17,6 +17,6 @@ sudo chown -R pi /home/pi/
 sudo chmod 777 -R /home/pi/
 sleep 5
 
-sudo apt-get install gnome-schedule lftp procps hostapd iproute2 iw haveged dnsmasq iptables ntp -y
+sudo apt-get install gnome-schedule lftp procps hostapd iproute2 iw haveged dnsmasq iptables ntp build-essential libjpeg8-dev imagemagick libv4l-dev cmake php -y
 sleep 2
 bash /home/pi/rpifiles/setupfiles/cleanup.sh

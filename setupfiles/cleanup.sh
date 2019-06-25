@@ -35,6 +35,19 @@ sleep 1
 pip install interruptingcow
 sleep 1
 sudo pip install interruptingcow
+sleep 2
+
+#Install for live stream
+#sudo apt-get install build-essential libjpeg8-dev imagemagick libv4l-dev cmake -y
+
+# Clone Repo in /tmp
+cd /tmp
+git clone https://github.com/jacksonliam/mjpg-streamer.git
+cd mjpg-streamer/mjpg-streamer-experimental
+# Make
+make
+sudo make install
+sleep 2
 
 # Set Permissions
 sudo chown -R pi /home/pi
@@ -60,6 +73,7 @@ gnome-schedule
 
 #Edit Customer Number info for dependant files
 leafpad /home/pi/rpifiles/customernumber.py
+sleep 2
 
 # Create User Media Directories
 python /home/pi/rpifiles/mkdir.py
@@ -67,6 +81,7 @@ sleep 5
 
 #Open raspi-config GUI
 env SUDO_ASKPASS=/usr/lib/rc-gui/pwdrcg.sh sudo -A rc_gui
+
 #Remove cleanup scripts
 #rm -fr /home/pi/rpifiles/setupfiles
 #rm /home/pi/rpifiles/mkdir.py
